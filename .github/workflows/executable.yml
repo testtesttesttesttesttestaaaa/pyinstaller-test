@@ -26,10 +26,15 @@ jobs:
         run: |
           pyinstaller main.py
 
-      - name: Commit changes
+      - name: commit files
         run: |
-          git config user.name "Your Name"
-          git config user.email "youremail@example.com"
-          git add .
-          git commit -m "Add PyInstaller workflow output" --author="Your Name <youremail@example.com>"
-          git push
+          git config --local user.email "action@github.com"
+          git config --local user.name "GitHub Action"
+          git add -A
+          git commit -m "update data" -a
+          
+      - name: push changes
+        uses: ad-m/github-push-action@v0.6.0
+        with:
+          github_token: ${{ secrets.TOKEN }}
+          branch: main
