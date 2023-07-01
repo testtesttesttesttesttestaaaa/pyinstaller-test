@@ -25,3 +25,11 @@ jobs:
       - name: Build executable
         run: |
           pyinstaller main.py
+
+      - name: Commit changes
+        run: |
+          git config user.name "Your Name"
+          git config user.email "youremail@example.com"
+          git add .
+          git commit -m "Add PyInstaller workflow output" --author="Your Name <youremail@example.com>"
+          git push
