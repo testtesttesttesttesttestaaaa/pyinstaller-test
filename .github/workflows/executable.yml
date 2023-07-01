@@ -24,7 +24,7 @@ jobs:
           pip install pyinstaller
       - name: Build executable
         run: |
-          pyinstaller main.py
+          pyinstaller main.py --onefile -w
       - name: commit files
         run: |
           git config --local user.email "action@github.com"
